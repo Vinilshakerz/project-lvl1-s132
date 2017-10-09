@@ -1,6 +1,8 @@
 {
   "name": "brain-games-s132",
   "version": "0.1.0",
+  "bin": {
+    "brain-games": "dist/bin/brain-games.js"},
   "description": "",
   "main": "src/bin/brain-games.js",
   "dependencies": {},
@@ -9,9 +11,6 @@
     "babel-core": "^6.26.0",
     "babel-preset-env": "^1.6.0",
     "babel-preset-stage-0": "^6.24.1"
-  },
-  "bin": {
-    "brain-games": "dist/bin/brain-games.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
