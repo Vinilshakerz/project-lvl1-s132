@@ -1,0 +1,11 @@
+{
+  "name": "brain-games",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/bin/brain-games.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Vadim Bratanov",
+  "license": "ISC"
+}
