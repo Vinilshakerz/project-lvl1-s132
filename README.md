@@ -1,4 +1,4 @@
-# project-lvl1-s132
+# Brain Games
 ```
 Make install
 ```
