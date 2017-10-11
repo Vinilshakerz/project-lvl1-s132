@@ -11,22 +11,31 @@ const firstGame = () => {
   console.log('Answer "yes" if number even otherwise answer "no".');
   const nameOfGamer = readlineSync.question('What is your name? ');
   console.log(`Hi ${nameOfGamer} !`);
+  const maxCount = 3;
   const iter = (count) => {
-    if (count === 3) {
+    if (count === maxCount) {
       return console.log(`Congratulations, ${nameOfGamer}!`);
     }
-    const maxNum = 100;
-    const num = Math.floor(Math.random() * maxNum);
-    const numEven = num % 2;
-    const correctAnswer = (numEven === 0) ? 'yes' : 'no';
-    console.log(`Question: ${num}`);
+    const getRandomNum = () => {
+      const maxNum = 100;
+      const num = Math.floor(Math.random() * maxNum);
+      return num;
+    };
+    const isNumEven = (num) => {
+      const numEven = num % 2 === 0;
+      return numEven;
+    };
+    const number = getRandomNum();
+    const correctAnswer = isNumEven(number) ? 'yes' : 'no';
+    console.log(`Question: ${number}`);
     const answer = readlineSync.question('Your Answer? ');
     if (answer === correctAnswer) {
       console.log('Correct');
       return iter(count + 1);
     }
     console.log(`${answer} is wrong answer ;(. Correct answer was ${correctAnswer}.`);
-    return console.log(`Let's try again, ${nameOfGamer}!`);
+    console.log(`Let's try again, ${nameOfGamer}!`);
+    return undefined;
   };
   const count = 0;
   return iter(count);
