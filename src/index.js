@@ -1,20 +1,20 @@
 import readlineSync from 'readline-sync';
-import { cons, car, cdr, toString } from 'hexlet-pairs';
+import { car, cdr } from 'hexlet-pairs';
 
-//brain-games start
+/* brain-games start */
 const start = () => {
   console.log('Welcome to the Brain Games!');
   const nameOfGamer = readlineSync.question('What is your name? ');
   console.log(`Hi ${nameOfGamer} !`);
   return nameOfGamer;
 };
-//random num
+/* function getRandomNum */
 const getRandomNum = () => {
   const maxNum = 100;
   const num = Math.floor(Math.random() * maxNum);
   return num;
 };
-//brain-games API
+/* brain-games API */
 const newGame = (game) => {
   const description = cdr(game);
   console.log('Welcome to the Brain Games!');
