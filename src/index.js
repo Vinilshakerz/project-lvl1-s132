@@ -1,14 +1,24 @@
 import readlineSync from 'readline-sync';
+import { cons, car, cdr, toString } from 'hexlet-pairs';
 
+//brain-games start
 const start = () => {
   console.log('Welcome to the Brain Games!');
   const nameOfGamer = readlineSync.question('What is your name? ');
   console.log(`Hi ${nameOfGamer} !`);
   return nameOfGamer;
 };
-const firstGame = () => {
+//random num
+const getRandomNum = () => {
+  const maxNum = 100;
+  const num = Math.floor(Math.random() * maxNum);
+  return num;
+};
+//brain-games API
+const newGame = (game) => {
+  const description = cdr(game);
   console.log('Welcome to the Brain Games!');
-  console.log('Answer "yes" if number even otherwise answer "no".');
+  console.log(description);
   const nameOfGamer = readlineSync.question('What is your name? ');
   console.log(`Hi ${nameOfGamer} !`);
   const maxCount = 3;
@@ -16,17 +26,9 @@ const firstGame = () => {
     if (count === maxCount) {
       return console.log(`Congratulations, ${nameOfGamer}!`);
     }
-    const getRandomNum = () => {
-      const maxNum = 100;
-      const num = Math.floor(Math.random() * maxNum);
-      return num;
-    };
-    const isNumEven = (num) => {
-      const numEven = num % 2 === 0;
-      return numEven;
-    };
-    const number = getRandomNum();
-    const correctAnswer = isNumEven(number) ? 'yes' : 'no';
+    const gameParameters = car(game)();
+    const number = car(gameParameters);
+    const correctAnswer = cdr(gameParameters);
     console.log(`Question: ${number}`);
     const answer = readlineSync.question('Your Answer? ');
     if (answer === correctAnswer) {
@@ -40,5 +42,4 @@ const firstGame = () => {
   const count = 0;
   return iter(count);
 };
-
-export { start, firstGame };
+export { start, newGame, getRandomNum };
