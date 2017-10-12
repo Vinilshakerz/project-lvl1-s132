@@ -17,7 +17,7 @@ const newGame = (makeGameParameters, description) => {
     }
     const gameParameters = makeGameParameters();
     const question = car(gameParameters);
-    const correctAnswer = cdr(gameParameters);
+    const correctAnswer = String(cdr(gameParameters));
     console.log(`Question: ${question}`);
     const answer = readlineSync.question('Your Answer? ');
     if (answer === correctAnswer) {
