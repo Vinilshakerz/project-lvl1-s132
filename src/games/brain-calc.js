@@ -1,5 +1,6 @@
 import { cons } from 'hexlet-pairs';
-import { getRandomNum, newGame } from '..';
+import getRandomNum from '../utils';
+import { newGame } from '..';
 
 const brainCalc = () => {
   const description = 'What is the result of the expression?';

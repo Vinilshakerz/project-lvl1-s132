@@ -1,25 +1,15 @@
 import readlineSync from 'readline-sync';
 import { car, cdr } from 'hexlet-pairs';
 
-/* brain-games start */
-const start = () => {
-  console.log('Welcome to the Brain Games!');
-  const nameOfGamer = readlineSync.question('What is your name? ');
-  console.log(`Hi ${nameOfGamer} !`);
-  return nameOfGamer;
-};
-/* function getRandomNum */
-const getRandomNum = (maxNum = 100) => {
-  const num = Math.floor(Math.random() * maxNum);
-  return num;
-};
 /* brain-games API */
 const newGame = (game) => {
   const description = cdr(game);
   console.log('Welcome to the Brain Games!');
   console.log(description);
+  console.log();
   const nameOfGamer = readlineSync.question('What is your name? ');
   console.log(`Hi ${nameOfGamer} !`);
+  console.log();
   const maxCount = 3;
   const iter = (count) => {
     if (count === maxCount) {
@@ -41,4 +31,4 @@ const newGame = (game) => {
   const count = 0;
   return iter(count);
 };
-export { start, newGame, getRandomNum };
+export { start, newGame };

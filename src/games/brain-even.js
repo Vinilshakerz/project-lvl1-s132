@@ -1,18 +1,14 @@
 import { cons } from 'hexlet-pairs';
-import { getRandomNum, newGame } from '..';
+import getRandomNum from '../utils';
+import { newGame } from '..';
 
-const brainEven = () => {
-  const description = 'Answer "yes" if number even otherwise answer "no".';
-  const gameParameters = () => {
-    const question = getRandomNum();
-    const isNumEven = (num) => {
-      const numEven = num % 2 === 0;
-      return numEven;
-    };
-    const correctAnswer = isNumEven(question) ? 'yes' : 'no';
-    return cons(question, correctAnswer);
-  };
-  const game = cons(gameParameters, description);
-  return newGame(game);
+const description = 'Answer "yes" if number even otherwise answer "no".';
+const isNumEven = num => num % 2 === 0;
+const gameParameters = () => {
+  const question = getRandomNum();
+  const correctAnswer = isNumEven(question) ? 'yes' : 'no';
+  return cons(question, correctAnswer);
 };
+const game = cons(gameParameters, description);
+const brainEven = () => newGame(game);
 export default brainEven;
