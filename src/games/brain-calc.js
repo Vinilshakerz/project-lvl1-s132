@@ -16,12 +16,11 @@ const calculate = (num1, num2, operation) => {
       return undefined;
   }
 };
-const gameParameters = () => {
+const makeGameParameters = () => {
   const num1 = getRandomNum();
   const num2 = getRandomNum();
   const operation = getRandomNum(maxNumOper) + 1;
   return calculate(num1, num2, operation);
 };
-const game = cons(gameParameters, description);
-const brainCalc = () => newGame(game);
+const brainCalc = () => newGame(makeGameParameters, description);
 export default brainCalc;

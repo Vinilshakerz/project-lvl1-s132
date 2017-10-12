@@ -2,21 +2,20 @@ import readlineSync from 'readline-sync';
 import { car, cdr } from 'hexlet-pairs';
 
 /* brain-games API */
-const newGame = (game) => {
-  const description = cdr(game);
+const maxCount = 3;
+const newGame = (makeGameParameters, description) => {
   console.log('Welcome to the Brain Games!');
   console.log(description);
   console.log();
   const nameOfGamer = readlineSync.question('May i have your name? ');
   console.log(`Hello, ${nameOfGamer} !`);
   console.log();
-  const maxCount = 3;
   const iter = (count) => {
     if (count === maxCount) {
       console.log(`Congratulations, ${nameOfGamer}!`);
       return;
     }
-    const gameParameters = car(game)();
+    const gameParameters = makeGameParameters();
     const question = car(gameParameters);
     const correctAnswer = cdr(gameParameters);
     console.log(`Question: ${question}`);
