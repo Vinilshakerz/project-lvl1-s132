@@ -9,8 +9,7 @@ const start = () => {
   return nameOfGamer;
 };
 /* function getRandomNum */
-const getRandomNum = () => {
-  const maxNum = 100;
+const getRandomNum = (maxNum = 100) => {
   const num = Math.floor(Math.random() * maxNum);
   return num;
 };

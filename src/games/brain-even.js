@@ -4,13 +4,13 @@ import { getRandomNum, newGame } from '..';
 const brainEven = () => {
   const description = 'Answer "yes" if number even otherwise answer "no".';
   const gameParameters = () => {
-    const number = getRandomNum();
+    const question = getRandomNum();
     const isNumEven = (num) => {
       const numEven = num % 2 === 0;
       return numEven;
     };
-    const correctAnswer = isNumEven(number) ? 'yes' : 'no';
-    return cons(number, correctAnswer);
+    const correctAnswer = isNumEven(question) ? 'yes' : 'no';
+    return cons(question, correctAnswer);
   };
   const game = cons(gameParameters, description);
   return newGame(game);
