@@ -1,6 +1,6 @@
 import { cons } from 'hexlet-pairs';
 import getRandomNum from '../utils';
-import { newGame } from '..';
+import newGame from '..';
 
 const description = 'Answer "yes" if number even otherwise answer "no".';
 const isNumEven = num => num % 2 === 0;
