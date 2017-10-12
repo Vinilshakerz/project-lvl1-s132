@@ -1,10 +1,10 @@
 {
   "name": "brain-games-s132",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "bin": {
     "brain-games": "dist/bin/brain-games.js",
     "brain-even": "dist/bin/brain-even.js",
-    "brain-calc": "dist/bin/brain-even.js"
+    "brain-calc": "dist/bin/brain-calc.js"
   },
   "description": "brain-games",
   "main": "index.js",
