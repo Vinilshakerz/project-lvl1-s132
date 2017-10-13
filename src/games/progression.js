@@ -4,9 +4,11 @@ import newGame from '..';
 
 const description = 'What number is missing in this progression?';
 const progressionLength = 10;
-const unknownNumPlace = getRandomNum(progressionLength);
-const progressionStep = getRandomNum();
+// const unknownNumPlace = getRandomNum(progressionLength);
+// const progressionStep = getRandomNum();
 const getProgression = (num) => {
+  const unknownNumPlace = getRandomNum(progressionLength);
+  const progressionStep = getRandomNum();
   const iter = (progression, acc, element) => {
     if (acc === progressionLength) {
       return progression;
