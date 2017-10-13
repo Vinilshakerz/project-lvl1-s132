@@ -7,7 +7,7 @@ const isNumEven = num => num % 2 === 0;
 const makeGameParameters = () => {
   const question = getRandomNum();
   const correctAnswer = isNumEven(question) ? 'yes' : 'no';
-  return cons(question, correctAnswer);
+  return cons(question, String(correctAnswer));
 };
-const brainEven = () => newGame(makeGameParameters, description);
-export default brainEven;
+const even = () => newGame(makeGameParameters, description);
+export default even;

@@ -20,5 +20,5 @@ const makeGameParameters = () => {
   const correctAnswer = findGCD(num1, num2);
   return cons(question, correctAnswer);
 };
-const brainGCD = () => newGame(makeGameParameters, description);
-export default brainGCD;
+const gcd = () => newGame(makeGameParameters, description);
+export default gcd;

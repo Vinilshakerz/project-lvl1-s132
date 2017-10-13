@@ -1,7 +1,6 @@
 import readlineSync from 'readline-sync';
 import { car, cdr } from 'hexlet-pairs';
 
-/* brain-games API */
 const maxCount = 3;
 const newGame = (makeGameParameters, description) => {
   console.log('Welcome to the Brain Games!');
@@ -17,7 +16,7 @@ const newGame = (makeGameParameters, description) => {
     }
     const gameParameters = makeGameParameters();
     const question = car(gameParameters);
-    const correctAnswer = String(cdr(gameParameters));
+    const correctAnswer = cdr(gameParameters);
     console.log(`Question: ${question}`);
     const answer = readlineSync.question('Your Answer? ');
     if (answer === correctAnswer) {
