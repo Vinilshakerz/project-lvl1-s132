@@ -6,7 +6,6 @@ const description = 'Balance the given number.';
 const maxNum = 10000;
 const additionalDigit = 1;
 const getNumLenght = num => String(num).length;
-const order = (digit, exp) => digit * (10 ** exp);
 const foldNum = (num) => {
   const iter = (numDigit, sum) => {
     if (numDigit === getNumLenght(num)) {
@@ -22,18 +21,18 @@ const constructNum = (digit, numLenght) => {
     if (exp === numLenght) {
       return acc;
     }
-    return iter(acc + order(digit, exp), exp + 1);
+    return iter(acc + (digit * (10 ** exp)), exp + 1);
   };
   return iter(0, 0);
 };
-const getMainDigit = num => Math.floor(foldNum(num) / getNumLenght(num));
-const getAdditionalDigitLenght = num => foldNum(num) % getNumLenght(num);
 const makeBalance = (num) => {
   if (foldNum(num) < getNumLenght(num)) {
     return constructNum(additionalDigit, foldNum(num));
   }
-  const mainNum = constructNum(getMainDigit(num), getNumLenght(num));
-  const additionalNum = constructNum(additionalDigit, getAdditionalDigitLenght(num));
+  const MainDigit = Math.floor(foldNum(num) / getNumLenght(num));
+  const mainNum = constructNum(MainDigit, getNumLenght(num));
+  const AdditionalDigitLenght = foldNum(num) - foldNum(mainNum);
+  const additionalNum = constructNum(additionalDigit, AdditionalDigitLenght);
   return mainNum + additionalNum;
 };
 const makeGameParameters = () => {
