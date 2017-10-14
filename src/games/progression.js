@@ -4,23 +4,21 @@ import newGame from '..';
 
 const description = 'What number is missing in this progression?';
 const progressionLength = 10;
-// const unknownNumPlace = getRandomNum(progressionLength);
-// const progressionStep = getRandomNum();
 const getProgression = (num) => {
   const unknownNumPlace = getRandomNum(progressionLength);
   const progressionStep = getRandomNum();
-  const iter = (progression, acc, element) => {
-    if (acc === progressionLength) {
-      return progression;
+  const iter = (acc, current, element) => {
+    if (current === progressionLength) {
+      return acc;
     }
-    if (acc < unknownNumPlace) {
+    if (current < unknownNumPlace) {
       const unit = element - progressionStep;
-      return iter(`${unit} ${progression}`, acc + 1, unit);
-    } else if (acc === unknownNumPlace) {
-      return iter(progression, acc + 1, num);
+      return iter(`${unit} ${acc}`, current + 1, unit);
+    } else if (current === unknownNumPlace) {
+      return iter(acc, current + 1, num);
     }
     const unit = Number(element) + Number(progressionStep);
-    return iter(`${progression} ${unit}`, acc + 1, unit);
+    return iter(`${acc} ${unit}`, current + 1, unit);
   };
   return iter(' .. ', 1, num);
 };
