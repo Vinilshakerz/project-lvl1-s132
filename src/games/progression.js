@@ -4,28 +4,24 @@ import newGame from '..';
 
 const description = 'What number is missing in this progression?';
 const progressionLength = 10;
-const getProgression = (num) => {
-  const unknownNumPlace = getRandomNum(progressionLength);
-  const progressionStep = getRandomNum();
+const getProgression = (startProgression, progressionStep, answerPos) => {
   const iter = (acc, current, element) => {
     if (current === progressionLength) {
-      return acc;
+      return cons(acc, String(element));
     }
-    if (current < unknownNumPlace) {
-      const unit = element - progressionStep;
-      return iter(`${unit} ${acc}`, current + 1, unit);
-    } else if (current === unknownNumPlace) {
-      return iter(acc, current + 1, num);
+    const unit = startProgression + (progressionStep * current);
+    if (current === answerPos) {
+      return iter(`${acc} .. `, current + 1, unit);
     }
-    const unit = Number(element) + Number(progressionStep);
-    return iter(`${acc} ${unit}`, current + 1, unit);
+    return iter(`${acc + unit} `, current + 1, element);
   };
-  return iter(' .. ', 1, num);
+  return iter('', 0, 0);
 };
 const makeGameParameters = () => {
-  const correctAnswer = String(getRandomNum());
-  const question = getProgression(correctAnswer);
-  return cons(question, correctAnswer);
+  const startProgression = getRandomNum();
+  const answerPos = getRandomNum(progressionLength);
+  const progressionStep = getRandomNum();
+  return getProgression(startProgression, progressionStep, answerPos);
 };
 const balance = () => newGame(makeGameParameters, description);
 export default balance;
