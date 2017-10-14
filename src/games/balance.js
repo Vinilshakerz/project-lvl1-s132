@@ -6,11 +6,8 @@ const description = 'Balance the given number.';
 const maxNum = 10000;
 const additionalDigit = 1;
 const getNumLenght = num => String(num).length;
-const getExponentOfTen = exp => 10 ** exp;
-const order = (digit, exp) => digit * getExponentOfTen(exp);
-/* Cложения цифр числа */
+const order = (digit, exp) => digit * (10 ** exp);
 const foldNum = (num) => {
-  /* numDigit - порядковый номер символа , sum - сумма цифр */
   const iter = (numDigit, sum) => {
     if (numDigit === getNumLenght(num)) {
       return sum;
@@ -20,7 +17,6 @@ const foldNum = (num) => {
   };
   return iter(0, 0);
 };
-/* Строит число с длиной символов numLength из цифр digit (по умолчанию цифра 1) */
 const constructNum = (digit, numLenght) => {
   const iter = (acc, exp) => {
     if (exp === numLenght) {
@@ -30,10 +26,7 @@ const constructNum = (digit, numLenght) => {
   };
   return iter(0, 0);
 };
-/* mainDigit вычисляет цифру из которой строится число без учета
-дополнительных единиц. */
 const getMainDigit = num => Math.floor(foldNum(num) / getNumLenght(num));
-/* additionalDigitLenght количество оставшихся единиц  */
 const getAdditionalDigitLenght = num => foldNum(num) % getNumLenght(num);
 const makeBalance = (num) => {
   if (foldNum(num) < getNumLenght(num)) {

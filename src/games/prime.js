@@ -3,22 +3,21 @@ import getRandomNum from '../utils';
 import newGame from '..';
 
 const description = 'Answer "yes" if number prime otherwise answer "no".';
-const halfNum = num => Math.floor(num / 2) + 1;
-const isDivider = (num, div) => num % div === 0;
 const isPrime = (num) => {
-  if (isDivider(num, 2)) {
+  const possibleDiv = Math.floor(Math.sqrt(num));
+  if (num <= 1) {
     return false;
   }
   const iter = (div) => {
-    if (isDivider(num, div)) {
-      return false;
-    }
-    if (div > halfNum(num)) {
+    if (div > possibleDiv) {
       return true;
     }
-    return iter(div + 2);
+    if (num % div === 0) {
+      return false;
+    }
+    return iter(div + 1);
   };
-  return iter(3);
+  return iter(2);
 };
 const makeGameParameters = () => {
   const question = getRandomNum();
